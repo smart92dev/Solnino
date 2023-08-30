@@ -1,0 +1,1499 @@
+@font-face{
+	font-family : "FuturaPT";
+	src:  url("./fonts/FuturaPTBook.otf");
+}
+@font-face{
+	font-family : "Avenir-Heavy";
+	src:  url("./AEH.ttf");
+}
+@font-face{
+	font-family : "FuturaPT-Bold";
+	src:  url("./fonts/FuturaPTBold.otf");
+}
+@font-face{
+	font-family : "FuturaPT-Light";
+	src:  url("./fonts/FuturaPTLight.otf");
+}
+@font-face{
+	font-family : "FuturaPT-Demi";
+	src:  url("./fonts/FuturaPTDemi.otf");
+}
+
+body{
+	overflow-x: hidden;
+
+	font-family: "FuturaPT" !important;
+
+	&::-webkit-scrollbar{
+		width : 4px;
+	}
+
+	&::-webkit-scrollbar-track{
+		background-color: #e4e4e4;
+		border-radius: 100px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #555;
+	}
+}
+
+.content{
+	min-height: calc(100vh - 80px);
+	background-color: #FFF;
+	display : flex;
+	flex-direction: column;
+	align-items : center;
+	width : 100%;
+
+	.MuiAlert-root{
+		margin : 0;
+		width : 100%;
+		background-color: #1e1e1e;
+		border-radius: 0;
+		border-width: 1px;
+		.MuiAlert-message{
+			width: 100%;
+			color : #F8F8F8;
+			font-family: "FuturaPT";
+			font-weight: 400;
+			text-align: center;
+			font-size: 22px;
+
+			a{
+				color : #60d3d8
+			}
+		}
+	}
+	.header{
+		width: 100%;
+		padding : 50px 33px 0 33px;
+		display: flex;
+		justify-content:space-between;
+		align-items: center;
+
+		
+		.logo-image{
+			width: 200px;
+		}
+
+		.menu{
+			z-index: 100;
+			.nav-item{
+				display: flex;
+				align-items: center;
+				font-family: 'Avenir-Heavy';
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 45px;
+				letter-spacing: -0.13px;
+				padding : 0 17px;
+				cursor:pointer;
+
+				button{
+					justify-content: center !important;
+					font-size: 14px;
+					font-family: 'Avenir-Heavy';
+					font-weight: bold;
+					background-color: #60D3D8;
+					color : #1e1e1e !important;
+					
+					height: 45px;
+					border: 0px;
+					border-radius: 25px;
+				}
+				.profile-icon{
+					margin-left: 12px;;
+					cursor : pointer
+				}
+			}
+		}
+	}
+	.topic-part{
+		height : 640px;
+		transform: translate(0, -180px);
+		.shark-image{
+			height : 470px;
+		}
+		h1{
+			text-shadow: 0px 2px 16px rgba(95,95,95,0.5);
+			color: #1e1e1e;
+			font-family: "FuturaPT-Bold";
+			font-size: 106px;
+			font-weight: 400;
+			line-height: 103px;
+			letter-spacing: -6.4px;
+			margin-bottom: 30px;
+		}
+		p{
+			color: #1e1e1e;
+			font-family: "FuturaPT-Light";
+			font-size: 28px;
+			font-weight: 400;
+			line-height: 36px;
+			letter-spacing: -0.5375px;
+		}
+	}
+	.game-status-panel{
+		width: 80%;
+		margin-bottom : 100px;
+		.game-status-panel-header{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 30px;
+
+			.navbar{
+				padding: 0;
+				.header-tab{
+					cursor: pointer;
+					height: 52px;
+					color: #1e1e1e;
+					opacity: 0.31844002;
+					font-family: "FuturaPT-Bold";
+					font-size: 30px;
+					font-weight: 400;
+					line-height: 48px;
+					letter-spacing: -0.725px;
+					padding-right: 70px;
+					
+					text-align: center;
+					hr{
+						height : 0;
+					}
+	
+					&.active{
+						opacity: 1;
+						hr{
+							border-radius: 3px;
+							opacity: 1;
+							margin: 0 auto;
+							width: 90%;
+							height : 5px;
+							background-color: #60D3D8;
+						}
+					}
+	
+				}
+			}
+			
+			.header-tab-right{				
+				fieldset{
+					display: none;
+					// background-color: rgba(164,164,164,0.16);
+					// border : none;
+				}
+				.MuiSelect-select{
+					background-color: rgba(164,164,164,0.16);
+					display: flex;
+					align-items: center;
+					font-family: "FuturaPT-Demi";
+					font-size: 16px;
+					font-weight: 400;
+					line-height: 18px;
+					text-align: left;
+					letter-spacing: -0.5375px;
+					width: 130px;
+					padding : 8px;
+				}
+				legend{
+					display: none;
+				}
+			}
+		}
+		.game-status-panel-body{
+			overflow : auto;
+			max-height: 600px;
+			&::-webkit-scrollbar{
+				width : 4px;
+			}
+			&::-webkit-scrollbar-track{
+				background-color: #e4e4e4;
+				border-radius: 100px;
+			}
+			&::-webkit-scrollbar-thumb {
+				background-color: #555;
+			}
+			.game-group{
+				border : 2px solid #dd8928;
+			}
+			.list-group{
+				padding: 0;
+				border-radius: 8px;
+				.list-group-item{
+					background-color: #ececec !important;
+					display: flex;
+					align-items: center !important;
+					
+					padding : 37px 30px;
+
+					color: #1e1e1e;
+					font-family: "FuturaPT";
+					font-size: 28px;
+					font-weight: 400;
+					line-height: 36px;
+					letter-spacing: -0.5375px;
+
+					.bet-content{
+						text-align: left;
+						div{
+							margin : 12px 0;
+						}
+						.first-line{
+							font-family: "FuturaPT-Demi";
+							span{
+								font-family: "FuturaPT-Light";
+							}
+						}
+						.second-line{
+							font-family: "FuturaPT-Light";
+							span{
+								font-family: "FuturaPT-Demi";
+								color : #36BA0A
+							}
+						}
+						.third-line{
+							display: flex;
+							align-items: center;
+							font-family: "FuturaPT-Demi";
+							img{
+								width: 24px;
+								height: 24px;
+							}
+							span{
+								font-family: "FuturaPT-Light";
+							}
+						}
+						
+					}
+
+					.game-content{
+						color: #1e1e1e;
+						font-family: "FuturaPT-Demi";
+						font-size: 28px;
+						font-weight: 400;
+						line-height: 36px;
+						letter-spacing: -0.5375px;
+						text-align: left;
+						
+						.vs-word{
+							font-family: "FuturaPT-Bold";
+							font-size : 28px;
+						}
+						.game-time{
+							color: #666;
+							font-family: "FuturaPT-Demi";
+							font-weight: 100;
+							font-size: 22px;
+							letter-spacing: -0.5375px;
+						}
+					}
+
+					.game-time{
+						color: #1e1e1e;
+						font-family: "FuturaPT-Demi";
+						font-weight: 100;
+						font-size: 14px;
+						letter-spacing: -0.5375px;
+					}
+
+					span{
+						.p2p-btn, .close-bet-btn{
+							margin : 0 10px;
+							width: 99px;
+							height: 18px;
+							color: #1e1e1e;
+							font-family: "Avenir-Heavy";
+							font-size: 13px;
+							font-weight: 400;
+							line-height: 18px;
+							text-align: center;
+							letter-spacing: -0.120714284px;
+
+							width: 158px;
+							height: 45px;
+							border : 0;
+							border-radius: 22.5px;
+							background: #60d3d8;
+							background-blend-mode: normal;
+
+							&:hover{
+								color: #60d3d8;
+								background-color: #1e1e1e;
+							}
+						}
+		
+						.house-btn, .accept-btn, .withdraw-btn{
+							margin : 0 10px;
+							width: 112px;
+							height: 18px;
+							color: #1e1e1e;
+							font-family: "Avenir-Heavy";
+							font-size: 13px;
+							font-weight: 400;
+							line-height: 18px;
+							text-align: center;
+							letter-spacing: -0.120714284px;
+
+							width: 158px;
+							height: 45px;
+							border-radius: 22.5px;
+							border: 1px solid #1e1e1e;
+
+							&:hover{
+								color: white;
+								background-color: #1e1e1e;
+							}
+						}
+
+						&.status-component{
+							.status{
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								height: 45px;
+								width: 103px;
+								border-radius: 8px;
+								background-blend-mode: normal;
+								font-family: "FuturaPT-Demi";
+								font-size: 24px;
+								font-weight: 400;
+								line-height: 36px;
+								letter-spacing: -0.46071428px;
+								span{
+									display: inline-block;
+									width: 12px;
+									height : 12px;
+									border-radius: 9999px;
+									background-blend-mode: normal;
+								}
+							}
+							.live-status, .lost-status, .no-winner-status{
+								background: #fcc1c1;
+								color: #fb3535;	
+								span{
+									background: #fb3535;
+								}
+							}
+							.no-winner-status{
+								width : 150px
+							}
+							.tie-status{
+								background: #acc8f1;	
+								color: #431fe4;
+								span{
+									background: #431fe4;
+								}
+							}
+							.won-status, .winner-status{
+								background: #b8f58e;	
+								color: #2f7a08;
+								span{
+									background: #2f7a08;
+								}
+							}
+							.winner-status{
+								width: 220px;
+							}
+							.pending-status{
+								width: 130px;
+								background: #f796ea;	
+								color: #cc119d;
+								span{
+									background: #cc119d;
+								}
+							}
+							.game-winner{
+								color: #1e1e1e;
+								font-family: "FuturaPT";
+								font-size: 28px;
+								font-weight: 400;
+								line-height: 36px;
+								letter-spacing: -0.5375px;
+							}
+						}
+					}
+				}
+
+			}
+		}
+	}
+	.create-match-panel{
+		h1{
+			margin-top: 40px;
+			color: #1e1e1e;
+			font-family: "FuturaPT-Bold";
+			font-size: 106px;
+			font-weight: 400;
+			line-height: 103px;
+			letter-spacing: -6.4px;
+			margin-bottom: 10px;
+		}
+		p{
+			color: #1e1e1e;
+			font-family: "FuturaPT-Light";
+			font-size: 28px;
+			font-weight: 400;
+			line-height: 36px;
+			letter-spacing: -0.5375px;
+		}
+		.allow-alert{
+			margin-top: 60px;
+			color : red;
+			font-family: "FuturaPT-Demi";
+			font-size: 28px;
+			font-weight: 400;
+			line-height: 36px;
+		}
+		.match-properties{
+			display: flex;
+			align-items: flex-end;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-bottom: 40px;
+			margin-top : 60px;
+			.match-property{
+				margin : 0 10px;
+			}
+			.team-name{
+				width: 573px;
+				position: relative;
+				border-radius: 13px;
+				.input-team{
+					font-family: "FuturaPT-Demi";
+					font-size: 28px;
+					font-weight: 400;
+					line-height: 36px;
+					text-align: center;
+					letter-spacing: -0.5375px;
+					border : none;
+					height: 56px;
+					width: 285px;
+					background: rgba(164,164,164,0.16);
+					background-blend-mode: normal;
+					padding-right : 20px;
+					padding-left: 20px;;
+
+					&::placeholder{
+						color : #7a7a7a
+					}
+				}
+				.team-a{
+					border-right: 1px solid #979797;
+					border-radius: 13px 0 0 13px;
+				}
+				.team-b{
+					border-radius: 0 13px 13px 0;
+				}
+				.vs-component{
+					position: absolute;
+					left: 260px;
+					top: 15px;
+					width: 50px;
+					height: 31px;
+					border-radius: 13px;
+					background: #ffffff;
+					background-blend-mode: normal;
+					color: #62d5d2;
+					font-family: "FuturaPT-Demi";
+					font-size: 18px;
+					font-weight: 400;
+					text-align: center;
+					letter-spacing: -0.375px;
+					line-height: 30px;
+				}
+			}
+
+			.category{
+				text-align: left;
+				color: #1e1e1e;
+				font-family: "FuturaPT-Light";
+				font-size: 22px;
+				font-weight: 400;
+				line-height: 40px;
+				letter-spacing: -0.5375px;
+				
+				fieldset{
+					display: none;
+					border : none;
+				}
+				.MuiSelect-select{
+					display: flex;
+					align-items: center;
+					background-color: rgba(164,164,164,0.16);
+					font-family: "FuturaPT-Demi";
+					font-size: 28px;
+					font-weight: 400;
+					line-height: 36px;
+					text-align: left;
+					letter-spacing: -0.5375px;
+					width: 180px;
+					padding : 8px;
+
+					.MuiList-root{
+						padding : 0 !important;
+						li{
+							background-color: rgba(164,164,164,0.16) !important;
+						}
+					}
+				}
+				legend{
+					display: none;
+				}
+			}
+
+			.date-picker{
+				text-align: left;
+				color: #1e1e1e;
+				font-family: "FuturaPT-Light";
+				font-size: 22px;
+				font-weight: 400;
+				line-height: 40px;
+				letter-spacing: -0.5375px;
+				fieldset{
+					display: none;
+					border : none;
+				}
+				.MuiOutlinedInput-root{
+					background-color: rgba(164,164,164,0.16);
+					.MuiOutlinedInput-input{
+						padding : 0;
+						font-family: "FuturaPT-Demi";
+						font-size: 28px;
+						font-weight: 400;
+						line-height: 60px;
+						text-align: left;
+						letter-spacing: -0.5375px;
+						padding : 8px;
+						width: 190px;;
+					}
+					legend{
+						display: none;
+					}
+				}
+			}
+		}
+
+		.create-match-btn{
+			margin-bottom: 50px;;
+			width: 211px;
+			height: 60px;
+			border-radius: 22.5px;
+			border: none;
+			background: #60d3d8;
+			background-blend-mode: normal;
+
+			color: #1e1e1e;
+			font-family: "Avenir-Heavy";
+			font-size: 22px;
+			font-weight: 400;
+			line-height: 18px;
+			text-align: center;
+			letter-spacing: -0.20428571px;
+
+			&:hover{
+				color : #60d3d8;
+				background-color: #1e1e1e;
+			}
+		}
+	}
+	.current-bet-panel{
+		width: 80%;
+		margin : 100px auto;
+		.current-bet-panel-header{
+			width: 100%;
+			display: grid;
+			grid-template-columns: 50% 10% 20% 20%;
+
+			color: #1e1e1e;
+			font-family: "FuturaPT-Light";
+			font-size: 22px;
+			font-weight: 400;
+			line-height: 36px;
+			text-align: center;
+			letter-spacing: -0.5375px;
+		}
+		.current-bet-panel-body{
+			.list-group{
+				padding: 0;
+				border-radius: 13px;
+				.list-group-item{
+					padding:0;
+
+					background-color: #ececec;
+					display: grid;
+					grid-template-columns: 50% 10% 20% 20% ;
+
+					.bet-content{
+						position : relative;
+						display: flex;
+						align-items: center;
+						background-color: rgba($color: #9a9a9a, $alpha: 0.16);
+						color: #1e1e1e;
+						font-family: "FuturaPT-Demi";
+						font-size: 28px;
+						font-weight: 400;
+						text-align: center;
+						letter-spacing: -0.5375px;
+						border-radius: 13px;
+						.team{
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							height : 123px;
+							cursor: pointer;
+							width: 50%;
+						}
+						.team-a{
+							border-radius: 13px 0 0 13px;
+							border-right: 1px solid #979797;
+							&.active{
+								background-color:#b8f58e;
+								border-radius: 13px;
+							}
+						}
+						.team-b{
+							border-radius: 0 13px 13px 0;
+							&.active{
+								background-color:#b8f58e;
+								border-radius: 13px;
+							}
+						}
+						.border-none{
+							border : none !important
+						}
+						.vs-component{
+							position: absolute;
+							
+							left : calc(50% - 30px);
+
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
+							color: #62d5d2;
+							font-family: "FuturaPT-Demi";
+							font-size: 24px;
+							font-weight: 400;
+							letter-spacing: -0.5px;
+
+							border-radius: 13px;
+							background: #ffffff;
+							background-blend-mode: normal;
+							width: 59px;
+							height: 51px;
+						}
+					}
+					.total-bet{
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						color: #1e1e1e;
+						font-family: "FuturaPT-Demi";
+						font-size: 28px;
+						font-weight: 400;
+						line-height: 36px;
+						text-align: center;
+						letter-spacing: -0.5375px;
+					}
+					.button-part{
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						.confirm-btn{
+							margin : 0 10px;
+							color: #1e1e1e;
+							font-family: "Avenir-Heavy";
+							font-size: 16px;
+							font-weight: 400;
+							line-height: 18px;
+							text-align: center;
+							letter-spacing: -0.120714284px;
+			
+							width: 158px;
+							height: 45px;
+							border : 0;
+							border-radius: 22.5px;
+							background: #60d3d8;
+							background-blend-mode: normal;
+							
+							&:hover{
+								color: #60d3d8;
+								background-color : #1e1e1e
+							}
+						}
+						.update-btn{
+							margin : 0 10px;
+							color: #1e1e1e;
+							font-family: "Avenir-Heavy";
+							font-size: 16px;
+							font-weight: 400;
+							line-height: 18px;
+							text-align: center;
+							letter-spacing: -0.120714284px;
+			
+							width: 158px;
+							height: 45px;
+							border: 1px solid #1e1e1e;
+							border-radius: 22.5px;
+							background-blend-mode: normal;
+							
+							&:hover{
+								color: white;
+								background-color : #1e1e1e
+							}
+						}
+					}
+				}
+
+				.info-panel{
+					display: flex;
+					align-items: center !important;					
+					padding : 37px 30px;
+					color: #1e1e1e;
+					font-family: "FuturaPT";
+					font-size: 28px;
+					font-weight: 400;
+					line-height: 36px;
+					letter-spacing: -0.5375px;
+				}
+			}
+		}
+	}
+	.leaderboard-panel{
+		margin-top: 50px;
+		margin-bottom: 100px;
+		width: 80%;
+		.token-asset{
+			margin-bottom: 50px;
+			color: #1e1e1e;
+			font-family: "FuturaPT-Light";
+			font-size: 22px;
+			font-weight: 400;
+			line-height: 40px;
+			letter-spacing: -0.5375px;
+			
+			fieldset{
+				display: none;
+				border : none;
+			}
+			.MuiSelect-select{
+				display: flex;
+				align-items: center;
+				background-color: rgba(164,164,164,0.16);
+				font-family: "FuturaPT-Demi";
+				font-size: 22px;
+				font-weight: 400;
+				line-height: 36px;
+				text-align: left;
+				letter-spacing: -0.5375px;
+				width: 120px;
+				padding : 8px;
+
+				.MuiList-root{
+					padding : 0 !important;
+					li{
+						background-color: rgba(164,164,164,0.16) !important;
+					}
+				}
+			}
+			legend{
+				display: none;
+			}
+		}
+		.leaderboard-panel-header{
+			display: grid;
+			grid-template-columns: 30% 13% 13% 13% 30%;
+
+			color: #1e1e1e;
+			font-family: "FuturaPT-Bold";
+			font-size: 22px;
+			font-weight: 400;
+			line-height: 36px;
+			letter-spacing: -0.725px;
+		}
+		.leaderboard-panel-body{
+			.list-group{
+				padding: 0;
+				border-radius: 8px;
+				.list-group-item{
+					padding : 30px 0;
+					background-color: #ececec !important;
+					display: grid;
+					grid-template-columns: 30% 13% 13% 13% 30%;
+
+					color: #1e1e1e;
+					font-family: "FuturaPT-Demi";
+					font-size: 28px;
+					font-weight: 400;
+					line-height: 36px;
+					text-align: center;
+					letter-spacing: -0.5375px;
+
+					.wallet{
+						color: #1e1e1e;
+						font-family: "FuturaPT-Light";
+						font-size: 24px;
+						font-weight: 400;
+						line-height: 36px;
+						letter-spacing: -0.5375px;
+					}
+
+					.total{
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+				}
+				.info-panel{
+					display: flex;
+					align-items: center !important;					
+					padding : 37px 30px;
+					color: #1e1e1e;
+					font-family: "FuturaPT";
+					font-size: 28px;
+					font-weight: 400;
+					letter-spacing: -0.5375px;
+				}
+			}
+		}
+	}
+}
+
+.dark-mode-button{
+	position: fixed;
+	bottom: 120px;
+	right: 80px;
+	.checkbox{
+		opacity: 0;
+		position: absolute;
+	}
+	.label{
+		width: 50px;
+		height: 26px;
+		background-color:#111;
+		display: flex;
+		border-radius:50px;
+		align-items: center;
+		justify-content: space-between;
+		padding: 6px;
+		position: relative;
+		transform: scale(1.5);
+		
+		.ball{
+			width: 20px;
+			height: 20px;
+			background-color: white;
+			position: absolute;
+			top: 3px;
+			left: 3px;
+			border-radius: 50%;
+			transition: transform 0.2s linear;	
+
+			&.trans-ball{
+				transform: translateX(24px);
+			}
+		}
+
+		.fa-moon {
+			color: pink;
+		}
+		
+		.fa-sun {
+			color: yellow;
+		}		
+	}
+}
+
+.footer{
+	background-color: #fff !important;
+	margin : 0px;
+	height : 80px;
+	color : rgba(#1e1e1e,0.5);
+	font-size : 18px;
+	line-height: 20px;
+	font-family: "FuturaPT" !important;
+	padding : 0 32px;
+
+	border-top: 1px solid #aaa;
+	display : flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.twitter-link{
+		cursor : pointer
+	}
+}
+
+.dark-footer{
+	color : rgba(#1e1e1e,0.5);
+	background-color: #ececec !important;
+}
+
+.MuiDialog-paper{
+	background-color: transparent !important;
+	border-radius: 32px !important;
+	.bet-modal-container{
+		background-color: #fff;
+		padding : 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		width : 100%;
+
+		.bet-modal-button-close-wrapper{
+			width: 100%;
+
+			.bet-modal-button-close{
+				float: right;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #ececec;
+				width: 37px;
+				height: 37px;
+				border-radius: 20px;
+				border : none;
+				color: #1e1e1e;
+				cursor : pointer;
+				
+				&:hover{
+					background-color: rgba(164,164,164,0.5);
+				}
+				
+				.close-svg{
+					user-select: none;
+					width: 15px;
+					height: 15px;
+					pointer-events: auto;
+					display: block;
+					vertical-align: middle;
+				}
+			}
+		}	
+		.bet-modal-header{
+			margin : 16px;
+			color: #1e1e1e;
+			font-family: "FuturaPT-Bold";
+			font-size: 36px;
+			font-weight: 400;
+			line-height: 36px;
+			text-align: center;
+			letter-spacing: -0.87px;
+		}
+		.bet-modal-subheader{
+			margin : 16px;
+			color: #1e1e1e;
+			font-family: "FuturaPT-Light";
+			font-size: 20px;
+			font-weight: 400;
+			line-height: 36px;
+			text-align: center;
+			letter-spacing: -0.5375px;
+		}
+		.bet-modal-selector{
+			position: relative;
+			margin : 16px;
+			display: flex;
+			align-items: center;
+	
+			color: #1e1e1e;
+			font-family: "FuturaPT-Demi";
+			font-size: 28px;
+			font-weight: 400;
+			text-align: center;
+			letter-spacing: -0.5375px;
+	
+			width : 670px;
+			background-color: #ececec;
+			border-radius: 16px;
+			.team{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				width: 50%;
+				height : 123px;
+				border-radius: 16px;
+				&.active{
+					background-color:#b8f58e;
+				}
+			}
+			.vs-component{
+				position: absolute;	
+				left : calc(50% - 30px);
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				color: #62d5d2;
+				font-family: "FuturaPT-Demi";
+				font-size: 24px;
+				font-weight: 400;
+				letter-spacing: -0.5px;
+
+				border-radius: 13px;
+				background: #ffffff;
+				background-blend-mode: normal;
+				width: 59px;
+				height: 51px;
+			}
+		}
+
+		.bet-modal-open-bet{
+			display: flex;
+			align-items: center;
+			width: 670px;
+			font-family: "FuturaPT-Demi";
+			font-size: 16px;
+			font-weight: 400;
+			text-align: left;
+			color : rgb(202, 42, 96);
+		}
+		.bet-modal-op-wallet{
+			margin : 16px;
+			input{
+				background-color: #ececec;
+				border: 0px solid #1D3557;
+				border-radius: 5px;
+				font-family: "FuturaPT-Demi";
+				font-size: 16px;
+				font-weight: 400;
+				text-align: left;
+				width: 670px;
+				height: 50px;
+				padding : 4px 20px;
+
+				&:disabled{
+					background-color: #ccc;
+				}
+			}
+		}	
+		.bet-modal-token-info{
+			margin : 16px;
+			width: 670px;
+	
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+	
+			.bet-modal-token-amount{
+				input{
+					background-color: #ececec;
+					border: 0px solid #1D3557;
+					border-radius: 5px;
+					font-family: "FuturaPT-Demi";
+					font-size: 16px;
+					font-weight: 400;
+					text-align: left;
+					width: 500px;
+					height: 50px;
+					padding : 4px 20px;
+				}
+				.bet-explanation{
+					font-family: "FuturaPT-Light";
+					font-weight : 400;
+					font-size : 16px;
+					line-height: 36px;
+					color : #1e1e1e;
+				}
+			}
+			.bet-modal-token-asset{
+				border-radius: 5px;
+				fieldset{
+					display : none;
+					border : none;
+				}
+				.MuiSelect-select{
+					display : flex;
+					align-items: center;
+					background-color: rgba(164,164,164,0.16);
+					font-family: "FuturaPT-Demi";
+					font-size: 16px;
+					font-weight: 400;
+					line-height: 16px;
+					text-align: left;
+					letter-spacing: -0.5375px;
+					width: 100px;
+					padding-top : 14px !important;
+					padding-bottom: 14px !important;
+
+					.MuiList-root{
+						padding : 0 !important;
+						li{
+							background-color: rgba(164,164,164,0.16) !important;
+						}
+					}
+				}
+				legend{
+					display: none;
+				}
+			}
+		}
+		.bet-modal-confirm{
+			margin : 16px;
+			button{
+				font-size: 14px;
+				font-family: 'Avenir-Heavy';
+				font-weight: bold;
+				background-color: #60D3D8;
+				width: 160px;
+				height: 45px;
+				border: 0px;
+				border-radius: 25px;
+
+				&:hover{
+					background-color: #1e1e1e;
+					color : #60D3D8;
+				}
+			}
+		}
+	}
+
+	.dark-modal{
+		background-color: #333;
+		border : none;
+
+		.bet-modal-button-close-wrapper{
+			.bet-modal-button-close{
+				background-color : #444;
+				color : #f8f8f8;
+
+				&:hover{
+					background-color: rgba(164,164,164,0.5);
+				}
+			}
+		}
+		.bet-modal-header, .bet-modal-subheader{
+			color : #f8f8f8;
+		}
+		.bet-modal-open-bet{
+			color :rgb(161, 240, 58)
+		}
+		.bet-modal-token-info{
+			.bet-modal-token-amount{
+				.bet-explanation{
+					color : #f8f8f8
+				}
+			}
+			.bet-modal-token-asset{
+				background-color: #f8f8f8;
+			}
+		}
+	}
+}
+
+.ant-notification{
+	z-index: 10000 !important;
+}
+
+.MuiList-root{
+	padding : 0 !important;
+	li{
+		font-family: "FuturaPT-Demi";
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 36px;
+		background-color: rgba(164,164,164,0.16) !important;
+	}
+}
+
+.dark-mode{
+	background-color: #1e1e1e !important;
+	.MuiAlert-root{
+		background-color: #60D3D8;
+		.MuiAlert-message{
+			color: #1e1e1e;
+
+			a{
+				color: #1e1e1e;
+				text-decoration: underline;
+			}
+		}
+	}
+	.header{
+		.menu{
+			.nav-item{
+				color : #f8f8f8;
+			}
+		}
+	}
+	.create-match-panel, .topic-part{
+		h1{
+			color : #f8f8f8;
+		}
+		p{
+			color : #f8f8f8;
+		}
+	}
+	.game-status-panel{
+		.game-status-panel-header{
+			.navbar{
+				.header-tab{
+					color: #f8f8f8;
+				}
+			}
+			.header-tab-right{
+				fieldset{
+					display: none;
+				}
+				.MuiSelect-select{
+					background-color: rgba(#ececec,1);
+					color : rgba(#1e1e1e,2) !important;
+				}
+			}
+		}
+	}
+	.current-bet-panel{
+		.current-bet-panel-header{
+			color : #f8f8f8;
+		}
+	}
+	.create-match-panel{
+		.allow-alert{
+			color : rgb(161, 240, 58);
+		}
+		.match-properties{
+			.team-name{
+				.input-team{
+					background-color: #f8f8f8;
+					color : black;
+				}
+			}
+			.category, .date-picker{
+				color : #f8f8f8;
+
+				.MuiSelect-select, .MuiOutlinedInput-root{
+					background-color: #f8f8f8;
+				}
+			}
+		}
+	}
+	.leaderboard-panel{
+		.token-asset{
+			color : #f8f8f8;
+			.MuiSelect-select, .MuiOutlinedInput-root{
+				background-color: #f8f8f8;
+			}
+		}
+		.leaderboard-panel-header{
+			color : #f8f8f8
+		}
+	}
+	.label{
+		background-color: white;
+		.ball{
+			background-color: #111;
+		}
+	}
+}
+
+.phone-page{
+	text-align: center;
+	background-color: #1e1e1e;
+	.top-part{
+		height : 680px;
+		width: 100%;
+		.header{
+			padding : 50px 33px 0 33px;
+			display: flex;
+			justify-content:space-between;
+			align-items: center;
+	
+			.logo-link{
+				// width: 30%;
+				// img{
+				// 	width: 100%;
+				// }
+				img{
+					width : 146px;
+					height : 79px;
+				}
+			}
+	
+			.twitter-link{
+				cursor : pointer;
+				// width: 6%;
+				// img{
+				// 	width: 100%;
+				// }
+				img{
+					width: 24px;
+					height: 20px;
+				}
+			}
+		}
+		.topic-part{
+			height : 580px;
+			transform: translate(0, -50px);
+			.shark-image{
+				width: 100%;
+				height : 300px;
+				img{
+					width: 390px;
+					height : 390px;
+				}
+			}
+			h1{
+				text-shadow: 0px 2px 16px rgba(95,95,95,0.5);
+				color: #f8f8f8;
+				font-family: "FuturaPT-Bold";
+				font-size: 55px;
+				font-weight: 400;
+				line-height: 55px;
+				letter-spacing: -3.3px;
+				margin-bottom: 30px;
+			}
+			p{
+				color: #f8f8f8;
+				font-family: "FuturaPT-Light";
+				font-size: 28px;
+				font-weight: 400;
+				line-height: 36px;
+				letter-spacing: -0.5375px;
+			}
+		}
+	}
+	.below-part{
+		min-height: calc(100vh - 680px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		color: #f8f8f8;
+		font-family: "FuturaPT-Demi";
+		font-size : 20px;
+	}
+}
+
+.apply-page{
+	min-height: calc(100vh - 80px);
+	background-color: #FFF;
+	display : flex;
+	flex-direction: column;
+	align-items : center;
+	width : 100%;
+
+	.header{
+		width: 100%;
+		padding : 50px 33px 0 33px;
+		display: flex;
+		justify-content:space-between;
+		align-items: center;
+
+		button{
+			justify-content: center !important;
+			font-size: 14px;
+			font-family: 'Avenir-Heavy';
+			font-weight: bold;
+			background-color: #60D3D8;
+			color : #1e1e1e !important;
+			
+			height: 45px;
+			border: 0px;
+			border-radius: 25px;
+		}
+	}
+	.topic-part{
+		transform: translate(0, -180px);
+		height : 800px;
+		.shark-image{
+			height : 600px;
+		}
+		h1{
+			text-shadow: 0px 2px 16px rgba(95,95,95,0.5);
+			color: #f8f8f8;
+			font-family: "FuturaPT-Bold";
+			font-size: 106px;
+			line-height: 103px;
+			font-weight: 400;
+			letter-spacing: -6.4px;
+			margin-bottom: 30px;
+		}
+		.special-part{
+			background: linear-gradient(236deg, #60d3d8 0%, #69d4d0 14.68%, #a8de92 100%) !important;
+			background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+		}
+		p{
+			color: #f8f8f8;
+			font-family: "FuturaPT-Light";
+			font-size: 28px;
+			font-weight: 400;
+			line-height: 36px;
+			letter-spacing: -0.5375px;
+		}
+	}
+	.step-panel{
+		width: 770px;
+		text-align: left;
+		padding-bottom: 60px;
+
+		.step-title{
+			padding-bottom: 20px;
+			color: #60d3d8;
+			font-family: "FuturaPT-Bold";
+			font-size: 28px;
+			font-weight: 400;
+			line-height: 36px;
+			letter-spacing: -0.5375px;
+		}
+
+		.step-content{
+			padding-bottom: 20px;
+			color: #f8f8f8;
+			font-family: "FuturaPT-Light";
+			font-size: 28px;
+			font-weight: 400;
+			line-height: 36px;
+			letter-spacing: -0.5375px;
+		}
+
+		button{
+			width: 770px;
+			height: 61px;
+			border-radius: 12px;
+			border: 1px solid #979797;
+			background: #d8d8d8;
+			background-blend-mode: normal;
+
+			color: #1e1e1e;
+			font-family: "FuturaPT-Demi";
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 36px;
+			text-align: center;
+			letter-spacing: -0.34553573px;
+		}
+
+		.btn-disconnect{
+			background-color: #c4eeb0;
+		}
+	}
+
+	.btn-apply{
+		margin-bottom: 100px;
+		width: 158px;
+		height: 45px;
+		border-radius: 22.5px;
+		border: 1px solid #60d3d8;
+		background: transparent;
+
+		color: #f8f8f8;
+		font-family: "Avenir-Heavy";
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 18px;
+		text-align: center;
+		letter-spacing: -0.120714284px;
+	}
+}
+
+.invalid-input{
+	outline-color: red !important;
+	border-color: red !important;
+	color : red
+}
