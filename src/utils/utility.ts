@@ -11,10 +11,7 @@ import {
   Blockhash,
   FeeCalculator,
 } from '@solana/web3.js';
-
-import {
-  WalletNotConnectedError,
-} from '@solana/wallet-adapter-base';
+import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 
 interface BlockhashAndFeeCalculator {
   blockhash: Blockhash;
@@ -32,7 +29,7 @@ export const getErrorForTransaction = async (
 
   const errors: string[] = [];
   if (tx?.meta && tx.meta.logMessages) {
-    tx.meta.logMessages.forEach(log => {
+    tx.meta.logMessages.forEach((log) => {
       const regex = /Error: (.*)/gm;
       let m;
       while ((m = regex.exec(log)) !== null) {
@@ -83,12 +80,12 @@ export const sendTransactions = async (
     }
 
     let transaction = new Transaction();
-    instructions.forEach(instruction => transaction.add(instruction));
+    instructions.forEach((instruction) => transaction.add(instruction));
     transaction.recentBlockhash = block.blockhash;
     transaction.setSigners(
       // fee payed by the wallet owner
       wallet.publicKey,
-      ...signers.map(s => s.publicKey),
+      ...signers.map((s) => s.publicKey),
     );
 
     if (signers.length > 0) {
@@ -110,7 +107,7 @@ export const sendTransactions = async (
   //   instructionSet.length,
   // );
 
-  const txIds = []
+  const txIds = [];
   for (let i = 0; i < signedTxns.length; i++) {
     const signedTxnPromise = sendSignedTransaction({
       connection,
@@ -118,8 +115,8 @@ export const sendTransactions = async (
     });
 
     try {
-      const { txid } = await signedTxnPromise
-      txIds.push(txid)
+      const { txid } = await signedTxnPromise;
+      txIds.push(txid);
     } catch (error) {
       // console.error(error)
       // @ts-ignore
@@ -165,18 +162,18 @@ export const sendTransaction = async (
   if (!wallet.publicKey) throw new WalletNotConnectedError();
 
   let transaction = new Transaction();
-  instructions.forEach(instruction => transaction.add(instruction));
+  instructions.forEach((instruction) => transaction.add(instruction));
   transaction.recentBlockhash = (
     block || (await connection.getRecentBlockhash(commitment))
   ).blockhash;
 
   if (includesFeePayer) {
-    transaction.setSigners(...signers.map(s => s.publicKey));
+    transaction.setSigners(...signers.map((s) => s.publicKey));
   } else {
     transaction.setSigners(
       // fee payed by the wallet owner
       wallet.publicKey,
-      ...signers.map(s => s.publicKey),
+      ...signers.map((s) => s.publicKey),
     );
   }
 
@@ -210,7 +207,7 @@ export const sendTransaction = async (
     slot = confirmation?.slot || 0;
 
     if (confirmation?.err) {
-      // const errors = 
+      // const errors =
       await getErrorForTransaction(connection, txid);
 
       // console.log(errors);
@@ -234,18 +231,18 @@ export const sendTransactionWithRetry = async (
   if (!wallet.publicKey) throw new WalletNotConnectedError();
 
   let transaction = new Transaction();
-  instructions.forEach(instruction => transaction.add(instruction));
+  instructions.forEach((instruction) => transaction.add(instruction));
   transaction.recentBlockhash = (
     block || (await connection.getRecentBlockhash(commitment))
   ).blockhash;
 
   if (includesFeePayer) {
-    transaction.setSigners(...signers.map(s => s.publicKey));
+    transaction.setSigners(...signers.map((s) => s.publicKey));
   } else {
     transaction.setSigners(
       // fee payed by the wallet owner
       wallet.publicKey,
-      ...signers.map(s => s.publicKey),
+      ...signers.map((s) => s.publicKey),
     );
   }
 
@@ -335,7 +332,7 @@ export async function sendSignedTransaction({
       simulateResult = (
         await simulateTransaction(connection, signedTransaction, 'single')
       ).value;
-    } catch (e) { }
+    } catch (e) {}
     if (simulateResult && simulateResult.err) {
       if (simulateResult.logs) {
         for (let i = simulateResult.logs.length - 1; i >= 0; --i) {
@@ -472,5 +469,5 @@ async function awaitTransactionSignatureConfirmation(
   return status;
 }
 export function sleep(ms: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

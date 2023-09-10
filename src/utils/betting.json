@@ -19,9 +19,7 @@
           "name": "rand",
           "isMut": false,
           "isSigner": false,
-          "docs": [
-            "CHECK : Random Address"
-          ]
+          "docs": ["CHECK : Random Address"]
         },
         {
           "name": "systemProgram",
